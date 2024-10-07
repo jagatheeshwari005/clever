@@ -102,7 +102,7 @@ public class Main extends Frame implements ActionListener, Serializable {
         setTitle("Task Manager");
         setSize(600, 400);
         setVisible(true);
-       
+        
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 System.exit(0);
@@ -110,10 +110,18 @@ public class Main extends Frame implements ActionListener, Serializable {
         });
     }
 
-    // Method to paint the background image
+    // Method to paint the background color and image
     @Override
     public void paint(Graphics g) {
+        // Set the background color to a light blue
+        g.setColor(new Color(173, 216, 230));  // Light blue color
+        g.fillRect(0, 0, getWidth(), getHeight());  // Fill the entire background
+
+        // Draw the background image on top of the background color
         g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+
+        // Ensure components are drawn on top of the background
+        super.paint(g);
     }
 
     // Handle Button Click Events
@@ -164,4 +172,3 @@ public class Main extends Frame implements ActionListener, Serializable {
         new Main();  // Launch the GUI
     }
 }
-
